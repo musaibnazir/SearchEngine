@@ -1,0 +1,19 @@
+heroku login
+
+git init 
+git add .
+git commit -m "RegistrationForm Added"
+git push prod master
+
+
+heroku pg:psql --app mnr-dev
+heroku logs --tail --app mnr-dev
+
+heroku run python3 manage.py db upgrade --app mnr-dev
+
+
+
+
+=== mnr-dev Config Vars
+APP_SETTINGS: config.ProductionConfig
+DATABASE_URL: postgres://hkdkxnvbzlpijl:4a578c7e65cce905203de0345bff05cb91d5c179cbdbdbb69414dc43a87bfbd9@ec2-23-22-156-110.compute-1.amazonaws.com:5432/d81u0dfm5nncdf
